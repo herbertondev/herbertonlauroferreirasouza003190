@@ -11,9 +11,7 @@ import org.jboss.logging.Logger;
 import java.io.InputStream;
 import java.util.concurrent.TimeUnit;
 
-/**
- * Serviço para operações de armazenamento de arquivos no MinIO.
- */
+
 @ApplicationScoped
 public class MinioService {
 

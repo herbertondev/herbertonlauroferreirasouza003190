@@ -9,9 +9,7 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 
-/**
- * Entidade que representa uma imagem de capa do álbum armazenada no MinIO.
- */
+
 @Entity
 @Table(name = "album_imagem")
 @Getter

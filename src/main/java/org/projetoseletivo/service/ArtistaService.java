@@ -19,9 +19,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
-/**
- * Serviço para operações de negócio da entidade Artista.
- */
+
 @ApplicationScoped
 public class ArtistaService {
 
@@ -34,9 +32,7 @@ public class ArtistaService {
     @Inject
     ArtistaMapper artistaMapper;
 
-    /**
-     * Lista artistas com paginação e ordenação.
-     */
+
     public PaginacaoResponse<ArtistaResponse> listar(String nome, TipoArtista tipo, Ordem ordem, int pagina,
             int tamanhoPagina) {
         List<Artista> artistas;
@@ -57,17 +53,13 @@ public class ArtistaService {
         return PaginacaoResponse.of(responses, pagina, tamanhoPagina, total);
     }
 
-    /**
-     * Busca artista por ID com álbuns.
-     */
+
     public Optional<ArtistaResponse> buscarPorId(Long id) {
         return artistaRepository.buscarPorIdComAlbuns(id)
                 .map(artistaMapper::toResponse);
     }
 
-    /**
-     * Cria um novo artista.
-     */
+
     @Transactional
     public ArtistaResponse criar(ArtistaRequest request) {
         Artista artista = artistaMapper.toEntity(request);
@@ -86,9 +78,7 @@ public class ArtistaService {
         return artistaMapper.toResponse(artista);
     }
 
-    /**
-     * Atualiza um artista existente.
-     */
+
     @Transactional
     public Optional<ArtistaResponse> atualizar(Long id, ArtistaRequest request) {
         Optional<Artista> artistaOpt = artistaRepository.findByIdOptional(id);
@@ -113,9 +103,7 @@ public class ArtistaService {
         return Optional.of(artistaMapper.toResponse(artista));
     }
 
-    /**
-     * Remove um artista.
-     */
+
     @Transactional
     public boolean remover(Long id) {
         return artistaRepository.deleteById(id);

@@ -22,9 +22,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-/**
- * Serviço para operações de negócio da entidade Album.
- */
+
 @ApplicationScoped
 public class AlbumService {
 
@@ -43,9 +41,7 @@ public class AlbumService {
     @Inject
     AlbumNotificacaoSocket notificacaoSocket;
 
-    /**
-     * Lista álbuns com paginação e filtros, ordenados alfabeticamente por título.
-     */
+
     public PaginacaoResponse<AlbumResponse> listar(
             String titulo,
             String nomeArtista,
@@ -77,17 +73,13 @@ public class AlbumService {
         return PaginacaoResponse.of(responses, pagina, tamanhoPagina, total);
     }
 
-    /**
-     * Busca álbum por ID com artistas e imagens.
-     */
+
     public Optional<AlbumResponse> buscarPorId(Long id) {
         return albumRepository.buscarPorIdCompleto(id)
                 .map(this::toResponseComUrls);
     }
 
-    /**
-     * Cria um novo álbum.
-     */
+
     @Transactional
     public AlbumResponse criar(AlbumRequest request) {
         Album album = albumMapper.toEntity(request);
@@ -110,9 +102,7 @@ public class AlbumService {
         return response;
     }
 
-    /**
-     * Atualiza um álbum existente.
-     */
+
     @Transactional
     public Optional<AlbumResponse> atualizar(Long id, AlbumRequest request) {
         Optional<Album> albumOpt = albumRepository.findByIdOptional(id);
@@ -145,18 +135,13 @@ public class AlbumService {
         return Optional.of(albumMapper.toResponse(album));
     }
 
-    /**
-     * Remove um álbum.
-     */
+
     @Transactional
     public boolean remover(Long id) {
         return albumRepository.deleteById(id);
     }
 
-    /**
-     * Busca e valida se todos os artistas existem.
-     * Lança IllegalArgumentException se algum artista não for encontrado.
-     */
+
     private Set<Artista> buscarEValidarArtistas(List<Long> artistaIds) {
         Set<Artista> artistas = new HashSet<>();
         List<Long> idsNaoEncontrados = new ArrayList<>();
@@ -178,9 +163,7 @@ public class AlbumService {
         return artistas;
     }
 
-    /**
-     * Converte álbum para response incluindo URLs pré-assinadas das imagens.
-     */
+
     private AlbumResponse toResponseComUrls(Album album) {
         AlbumResponse response = albumMapper.toResponse(album);
 
