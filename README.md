@@ -66,13 +66,6 @@ src/main/java/org/projetoseletivo/
 - Java 21 (opcional, para dev local)
 - Maven 3.9+ (opcional, para dev local)
 
-### Com Script Automático (Recomendado ⭐)
-
-A maneira mais fácil de rodar o projeto, garantindo a versão correta do Java e subindo os containers (faz build local):
-
-```bash
-./start.sh
-```
 
 ### Com Docker Hub (Sem Build Local)
 
