@@ -4,9 +4,10 @@ API RESTful para gerenciamento de artistas musicais e seus álbuns, desenvolvida
 
 ## 📋 Dados do Candidato
 
-- **Nome**: [Preencher nome]
+- **Nome**: HERBERTON LAURO FERREIRA SOUZA
 - **Vaga**: Desenvolvedor Java Sênior
 - **Processo Seletivo**: SEPLAG-MT
+- **N° Inscrição** : 16384
 
 ## 🚀 Tecnologias
 
@@ -233,3 +234,5 @@ A aplicação vem pré-carregada com os seguintes artistas e álbuns:
 ## 📄 Licença
 
 Este projeto foi desenvolvido para o processo seletivo SEPLAG-MT.
+
+PROCESSO SELETIVO CONJUNTO Nº 001/2026/SEPLAG e demais Órgãos - Engenheiro da Computação- Sênior.
