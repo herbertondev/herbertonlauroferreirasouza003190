@@ -67,6 +67,14 @@ src/main/java/org/projetoseletivo/
 - Java 21 (opcional, para dev local)
 - Maven 3.9+ (opcional, para dev local)
 
+### Usando o start.sh (Build + Docker)
+
+```bash
+./start.sh
+```
+
+Esse script compila o projeto (sem testes) e sobe os containers via Docker Compose.
+
 
 ### Com Docker Hub (Sem Build Local)
 
