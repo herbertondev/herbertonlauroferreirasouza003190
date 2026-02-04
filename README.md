@@ -121,7 +121,8 @@ Após iniciar a aplicação, acesse:
 |---------|-----|
 | Swagger UI | http://localhost:8080/swagger-ui |
 | OpenAPI JSON | http://localhost:8080/openapi |
-| Health Check | http://localhost:8080/q/health |
+| Health Check UI | http://localhost:8080/health-check.html |
+| Health Check JSON | http://localhost:8080/q/health |
 | MinIO Console | http://localhost:9011 |
 | MinIO API | http://localhost:9110 |
 
@@ -199,6 +200,18 @@ ws.onmessage = (e) => console.log('Novo álbum:', JSON.parse(e.data));
   }
 }
 ```
+
+## 🏥 Health Check - Monitoramento Visual
+
+Acompanhe o status da aplicação e suas dependências (Banco de Dados, MinIO, etc.) em tempo real.
+
+### Página de Monitoramento
+Acesse **http://localhost:8080/health-check.html** para visualizar o painel de status.
+
+### Endpoints
+- **UI Visual**: http://localhost:8080/health-check.html
+- **JSON Puro**: http://localhost:8080/q/health
+- **UI Nativa Quarkus**: http://localhost:8080/q/health-ui
 
 ## 🧪 Testes
 
