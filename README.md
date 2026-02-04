@@ -135,6 +135,12 @@ curl -X POST http://localhost:8080/v1/auth/login \
   -d '{"username":"admin","senha":"admin123"}'
 ```
 
+### Renovar Token
+```bash
+curl -X POST http://localhost:8080/v1/auth/refresh \
+  -H "X-Refresh-Token: <refresh_token>"
+```
+
 ### Usar Token
 ```bash
 curl -H "Authorization: Bearer <token>" \
@@ -241,7 +247,7 @@ A aplicação vem pré-carregada com os seguintes artistas e álbuns:
 |---------|------|--------|
 | Serj Tankian | SOLO | Harakiri, Black Blooms, The Rough Dog |
 | Mike Shinoda | SOLO | The Rising Tied, Post Traumatic, Post Traumatic EP, Where'd You Go |
-| Michel Teló | SOLO | Bem Sertanejo, Bem Sertanejo - O Show, Bem Sertanejo EP |
+| Michel Teló | SOLO | Bem Sertanejo, Bem Sertanejo - O Show (Ao Vivo), Bem Sertanejo - (1a Temporada) - EP |
 | Guns N' Roses | BANDA | Use Your Illusion I, Use Your Illusion II, Greatest Hits |
 
 ## 📄 Licença

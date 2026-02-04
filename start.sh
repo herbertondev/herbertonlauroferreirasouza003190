@@ -9,16 +9,23 @@ NC='\033[0m' # No Color
 
 echo -e "${YELLOW}🔍 Verificando ambiente Java...${NC}"
 
-# Tenta forçar o uso do JDK 17 que sabemos que funciona e existe no sistema
-if [ -d "/usr/lib/jvm/java-1.17.0-openjdk-amd64" ]; then
-    export JAVA_HOME="/usr/lib/jvm/java-1.17.0-openjdk-amd64"
-    echo -e "${GREEN}✅ JDK 17 encontrado e configurado: $JAVA_HOME${NC}"
+# Tenta forcar o uso do JDK 21 se existir no sistema
+if [ -d "/usr/lib/jvm/java-1.21.0-openjdk-amd64" ]; then
+    export JAVA_HOME="/usr/lib/jvm/java-1.21.0-openjdk-amd64"
+    echo -e "${GREEN}✅ JDK 21 encontrado e configurado: $JAVA_HOME${NC}"
 else
-    echo -e "${RED}⚠️ JDK 17 específico não encontrado. Tentando usar o padrão do sistema...${NC}"
+    echo -e "${YELLOW}⚠️ JDK 21 específico não encontrado. Tentando usar o padrão do sistema...${NC}"
 fi
 
 # Verifica versão do Java
-$JAVA_HOME/bin/java -version
+if [ -n "$JAVA_HOME" ] && [ -x "$JAVA_HOME/bin/java" ]; then
+    "$JAVA_HOME/bin/java" -version
+elif command -v java >/dev/null 2>&1; then
+    java -version
+else
+    echo -e "${RED}❌ Java não encontrado no PATH. Instale o JDK 21 e tente novamente.${NC}"
+    exit 1
+fi
 
 echo -e "\n${YELLOW}🏗️ Compilando o projeto (Skipping Tests)...${NC}"
 ./mvnw clean package -DskipTests
